@@ -1,38 +1,103 @@
-.App {
+.main {
+  padding: 20px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-rows: repeat(3, auto); */
+  grid-gap: 10px;
+  grid-template-areas: 
+    "homeinterface usersinterface"
+    "homeinterface usersinterface"
+  ;
+}
+
+.homeinterface {
+  grid-area: homeinterface;
+  color: white;
+  border: 1px solid red;
+  display: grid;
+}
+
+.usersinterface {
+  grid-area: usersinterface;
+  border-radius: 10px;
+}
+
+.my-grid {
+  border: 1px solid red;
+  margin: auto;
+  display: grid;
+  /* grid-template-columns: repeat(1, 1fr); */
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 20px;
+  grid-template-areas: 
+    "section-one"
+    "section-two"
+    "section-three"
+  ;
+}
+
+.section-one {
+  grid-area: section-one;
+}
+.section-two {
+  grid-area: section-two;
+}
+.section-three {
+  grid-area: section-three;
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto, 1fr);
+  grid-gap: 4px;
+  justify-items: center;
+}
+.icons-subgrid {
+  width: 100px;
+  height: auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.icon-background {
+  /* margin: 0; */
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.icon-name {
+  /* margin: 0; */
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.all-users {
+  background-color: palevioletred;
+}
+.male-users {
+  background-color: blue;
+}
+.female-users {  
+  background-color: purple;
+}
+
+
+
+
+.search-container {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.search-form {
+  background-color:  rgba(136, 170, 170, 0.64);
   color: white;
+  border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 50px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
