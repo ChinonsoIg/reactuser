@@ -15,8 +15,7 @@ const Home = () => {
       <div className="section-two">
         <div className="search-container p-1">
           <form action="">
-            {/* <i className="fa fa-search"></i> */}
-            <input 
+            <input
               type="text"
               placeholder="Find a user"
               name="search"

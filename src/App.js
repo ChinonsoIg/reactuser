@@ -1,6 +1,7 @@
 import './App.css';
 
 import Home from "./components/home";
+import Users from "./components/users/usersList"
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         className="container-fluid usersinterface"
         style={{backgroundColor:'orange'}}
         >
-          Users interface
+          <Users />
       </div>
     </div>
   );
