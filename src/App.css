@@ -23,6 +23,7 @@
   grid-area: usersinterface;
   border-radius: 10px;
   padding: 10px;
+  background-color: #e9e9f9;
 }
 
 .my-grid {
@@ -126,10 +127,16 @@
   grid-area: text4;
   border-radius: 20px;
   padding-left: 5px;
+  color: #191a1a;
+  background-color: #838686;
+  border: none;
 }
 .option-select {
   grid-area: text5;
   border-radius: 20px;
+  color: #191a1a;
+  background-color: #838686;
+  border: none;
 }
 
 
@@ -148,7 +155,7 @@
   align-items: center;
 }
 
-.avatar {
+.avatar-user-list {
   grid-area: left;
   border: 3px solid teal;
   width: 100px;
@@ -179,4 +186,39 @@
 }
 
 
+/* For usersDetail.js */
+.user-detail {
+  display: grid;
+  grid-template-areas: 
+  "avatar-user-detail text-user-detail text-user-detail text-user-detail"
+  ;
+  grid-gap: 10px;
+}
+.avatar-user-detail {
+  grid-area: avatar-user-detail;
+  border: 3px solid teal;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.text-user-detail {
+  grid-area: text-user-detail;
+  font-size: small;
+  font-weight: lighter;
+  align-self: flex-start;
+}
+.age {
+  font-weight: lighter;
+  margin-left: 10px;
+}
+.email {
+  background-color: #d6d6d7;
+  border-radius: 20px;
+  padding-left: 5px;
+}
+.joined {
+  background-color: #dbb1b896;
+  border-radius: 20px;
+  padding-left: 5px;
+}
 

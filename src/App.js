@@ -1,7 +1,8 @@
 import './App.css';
 
 import Home from "./components/home";
-import Users from "./components/users/usersList"
+import UsersList from "./components/users/usersList";
+import UsersDetail from "./components/users/usersDetail";
 
 function App() {
   return (
@@ -13,9 +14,8 @@ function App() {
       </div>
       <div
         className="container-fluid usersinterface"
-        style={{backgroundColor:'orange'}}
         >
-          <Users />
+          <UsersList />
       </div>
     </div>
   );

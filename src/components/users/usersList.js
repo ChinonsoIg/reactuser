@@ -10,7 +10,7 @@ const Users = () => {
 
       <div className="card content-panel">
         
-       <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="Profile pic" className="avatar" />
+        <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="Profile pic" className="avatar-user-list" />
         <div className="card-text">
           <p>Shalom Chinonso</p>
           <p>Address</p>
