@@ -26,7 +26,7 @@ const User = ({ user }) => {
         </small>
       </div>
 
-      <div className="arrow-bg" onClick={handleDetails()}>
+      <div className="arrow-bg">
         <span className="arrow">&#x2192;</span>
       </div>  
     </div>
