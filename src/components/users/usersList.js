@@ -4,7 +4,7 @@ import '../../App.css';
 
 import { USER_PER_PAGE } from "../../utils/constants";
 import User from "./user";
-import Pagination from "../pagination";
+import Footer from "../footer";
 
 const UsersList = ({ username }) => {
 
@@ -14,13 +14,10 @@ const UsersList = ({ username }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
+  // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
   const selectedUsers = items.slice(startIndex, startIndex + USER_PER_PAGE)
 
-  // console.log(items.length);
-  console.log(totalPages)
-
-  const history = useHistory();
   const location = useLocation();
 
   const getData = () => {
@@ -57,30 +54,8 @@ const UsersList = ({ username }) => {
         {selectedUsers.map(i => (
           <User user={i} key={i.login.uuid} />        
         ))}
-        <Pagination totalPages={totalPages} handleClick={handleClick} />
+        <Footer totalPages={totalPages} handleClick={handleClick} />
       </>
-      // <div>
-      //   {items.map((item, id) => (
-      //   <div className="card content-panel" key={id}>
-          
-      //     <img src={item.picture.medium} alt="Profile pic" className="avatar-user-list" />
-
-      //     <div className="card-text">
-      //       <p className="font-weight-bold">
-      //         {item.name.first} &nbsp;
-      //         {item.name.last}
-      //       </p>
-      //       <p>{`${item.location?.street?.number} ${item.location?.street?.name}`}</p>
-      //       <p>{`${item.email} ${item.phone}`}</p>
-      //     </div>
-
-      //     <div className="arrow-bg">
-      //       <span className="arrow">&#x2192;</span>
-      //     </div>
-      //   </div>
-      //   ))}
-        
-      // </div>
     );
   }
 }

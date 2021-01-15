@@ -4,17 +4,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Link
 } from "react-router-dom";
 
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers, faMale, faFemale } from '@fortawesome/free-solid-svg-icons';
+
+// Components
 import UsersList from "./users/usersList";
-import UsersDetail from "./users/usersDetail";
 import UsersHeader from "./users/usersHeader";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faMale, faFemale, faEnvelope, faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
+
 
 const Home = () => {
 
@@ -23,7 +24,10 @@ const Home = () => {
     <div className="container-fluid homeinterface">
     <div className="my-grid">
       <div className="section-one">
-        <h1 className="m-1 pb-2">Hello,<span className="font-weight-bold">Emerald</span></h1>
+        <h1 className="m-1 pb-2">
+          <span>Hello, </span>
+          <span className="font-weight-bold">Emerald</span>
+        </h1>
         <p className="m-1 pb-2">
           <small>Welcome to your dashboard, kindly sort through the user base</small>
         </p>
@@ -86,9 +90,10 @@ const Home = () => {
     </div>
     </div>
 
-    <div
-      className="container-fluid usersinterface"
-      >
+    <div className="container-fluid usersinterface">
+      {/* The "userGender" prop is passed to the useEffect method in usersList component, to filter the search by gender.
+      The "username" prop is passed the usersHeader component to tell which gender is fetched */
+      }
       <Switch>
         <Route path="/male-users">
           <UsersHeader userGender="Male" />
