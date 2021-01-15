@@ -69,6 +69,12 @@
   line-height: 60px;
   border-radius: 10px;
 }
+.icon-background:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 .icon-name {
   /* margin: 0; */
@@ -153,6 +159,7 @@
   grid-gap: 10px;
   padding: 10px;
   align-items: center;
+  margin: 10px 0;
 }
 
 .avatar-user-list {
@@ -164,6 +171,10 @@
 }
 .card-text {
   grid-area: middle;
+}
+.card-text p {
+  padding: 1px;
+  margin: 1px;
 }
 .arrow-bg {
   grid-area: right;
@@ -181,8 +192,10 @@
 }
 .arrow {
   color: white;
-  font-weight: bold;
-  margin: auto;
+  font-weight: bolder;
+  font-size: x-large;
+  margin: 0 auto;
+  line-height: 1;
 }
 
 
