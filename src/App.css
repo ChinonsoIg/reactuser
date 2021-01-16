@@ -4,9 +4,9 @@
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-template-rows: repeat(3, auto); */
+  grid-template-rows: repeat(2, auto);
   grid-gap: 10px;
-  grid-template-areas: 
+  grid-template-areas:
     "homeinterface usersinterface"
     "homeinterface usersinterface"
   ;
@@ -15,7 +15,6 @@
 .homeinterface {
   grid-area: homeinterface;
   color: white;
-  border: 1px solid red;
   display: grid;
 }
 
@@ -27,10 +26,9 @@
 }
 
 .my-grid {
-  border: 1px solid red;
   margin: auto;
   display: grid;
-  /* grid-template-columns: repeat(1, 1fr); */
+  grid-template-columns: auto;
   grid-template-rows: repeat(3, auto);
   grid-gap: 20px;
   grid-template-areas: 
@@ -39,7 +37,6 @@
     "section-three"
   ;
 }
-
 .section-one {
   grid-area: section-one;
 }
@@ -49,7 +46,6 @@
 .section-three {
   grid-area: section-three;
 }
-
 .icons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -62,19 +58,32 @@
   height: auto;
   text-align: center;
 }
-
 .icon-background {
   width: 60px;
   height: 60px;
   line-height: 60px;
   border-radius: 10px;
 }
-
+.icon-background:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .icon-name {
-  /* margin: 0; */
   text-align: left;
 }
-
+.search-container {
+  width: 100%;
+}
+.search-form {
+  background-color:  rgba(136, 170, 170, 0.64);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 50px;
+}
 .all-users {
   background-color: palevioletred;
 }
@@ -83,20 +92,6 @@
 }
 .female-users {  
   background-color: purple;
-}
-
-.search-container {
-  border: 1px solid red;
-  width: 100%;
-}
-
-.search-form {
-  background-color:  rgba(136, 170, 170, 0.64);
-  color: white;
-  border-radius: 10px;
-  border: none;
-  width: 100%;
-  height: 50px;
 }
 
 
@@ -113,7 +108,6 @@
     "text4 text5 text3"
   ;
 }
-
 .text1 {
   grid-area: text1;
 }
@@ -153,8 +147,8 @@
   grid-gap: 10px;
   padding: 10px;
   align-items: center;
+  margin: 10px 0;
 }
-
 .avatar-user-list {
   grid-area: left;
   border: 3px solid teal;
@@ -164,6 +158,10 @@
 }
 .card-text {
   grid-area: middle;
+}
+.card-text p {
+  padding: 1px;
+  margin: 1px;
 }
 .arrow-bg {
   grid-area: right;
@@ -181,8 +179,10 @@
 }
 .arrow {
   color: white;
-  font-weight: bold;
-  margin: auto;
+  font-weight: bolder;
+  font-size: x-large;
+  margin: 0 auto;
+  line-height: 1;
 }
 
 
@@ -222,3 +222,19 @@
   padding-left: 5px;
 }
 
+
+/* For Footer */
+.footer {
+  display: block;
+  margin-top: 1rem;
+}
+.download {
+  float: left;
+  color: white;
+  background-color: purple;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.pagination {
+  float: right;
+}

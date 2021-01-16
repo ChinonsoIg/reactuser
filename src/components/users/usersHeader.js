@@ -1,12 +1,12 @@
 import '../../App.css';
 
-
-
-const UsersHeader = () => {
+const UsersHeader = ({ userGender }) => {
   return (
     <>
       <div className="header-panel">
-        <h1 className="font-weight-bold text1">Users</h1>
+        <h1 className="font-weight-bold text1">
+          {userGender} Users
+        </h1>
         <small className="text2">Filter by</small>
         <input 
           type="text"

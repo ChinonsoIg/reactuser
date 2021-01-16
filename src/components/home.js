@@ -1,13 +1,33 @@
 import '../App.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUsers, faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers, faMale, faFemale } from '@fortawesome/free-solid-svg-icons';
+
+// Components
+import UsersList from "./users/usersList";
+import UsersHeader from "./users/usersHeader";
+
+
 
 const Home = () => {
+
   return (
+    <Router>
+    <div className="container-fluid homeinterface">
     <div className="my-grid">
       <div className="section-one">
-        <h1 className="m-1 pb-2">Hello,<span className="font-weight-bold">Emerald</span></h1>
+        <h1 className="m-1 pb-2">
+          <span>Hello, </span>
+          <span className="font-weight-bold">Emerald</span>
+        </h1>
         <p className="m-1 pb-2">
           <small>Welcome to your dashboard, kindly sort through the user base</small>
         </p>
@@ -26,33 +46,71 @@ const Home = () => {
       <div className="section-three">
         <p className="m-1 pb-2 pt-2">Show users</p>
         <div className="m-1 icons-grid">
-          <div className="icons-subgrid">
+          <div className="icons-subgrid">            
             <div className="icon-background all-users">
-              <FontAwesomeIcon icon={faUsers} />
-            </div>            
+              <Link to="/">
+                <FontAwesomeIcon 
+                  icon={faUsers}
+                  style={{color: "white"}} />
+              </Link>
+            </div>
             <p className="icon-name">
               <small>All users</small>
             </p>
           </div>
-          <div className="icons-subgrid">
+
+          <div className="icons-subgrid">            
             <div className="icon-background male-users">
-              <FontAwesomeIcon icon={faMale} />
+              <Link to="/male-users">
+                <FontAwesomeIcon 
+                  icon={faMale}
+                  style={{color: "white"}} />
+              </Link>
             </div>            
             <p className="icon-name">
               <small>Male users</small>
-            </p>
+            </p>            
           </div>
-          <div className="icons-subgrid">
+
+          <div className="icons-subgrid">         
             <div className="icon-background female-users">
-              <FontAwesomeIcon icon={faFemale} />
-            </div>
+              <Link to="/female-users">
+                <FontAwesomeIcon 
+                  icon={faFemale}
+                  style={{color: "white"}} />
+              </Link>
+            </div>            
             <p className="icon-name">
               <small>Female users</small>
-            </p>
+            </p>            
           </div>
+
         </div>
       </div>
     </div>
+    </div>
+
+    <div className="container-fluid usersinterface">
+      {/* The "userGender" prop is passed to the useEffect method in usersList component, to filter the search by gender.
+      The "username" prop is passed the usersHeader component to tell which gender is fetched */
+      }
+      <Switch>
+        <Route path="/male-users">
+          <UsersHeader userGender="Male" />
+          <UsersList username="male" />
+        </Route>
+        <Route path="/female-users">
+          <UsersHeader userGender="Female" />
+          <UsersList username="female" />
+        </Route>
+        <Route path="/">
+          <UsersHeader userGender="All" />
+          <UsersList username="all" />
+        </Route>
+      </Switch>
+    </div>
+    
+    </Router>
   );
 }
 

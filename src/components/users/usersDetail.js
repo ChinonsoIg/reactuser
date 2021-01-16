@@ -1,10 +1,8 @@
 import '../../App.css';
-import UsersHeader from "./usersHeader";
 
 const UsersDetail = () => {
   return (
     <>
-      <UsersHeader />
       <p><span>&larr;</span>RESULTS</p>
       <div className="user-detail">
         <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="Profile pic" className="avatar-user-detail" />
