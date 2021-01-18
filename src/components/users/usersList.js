@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import '../../App.css';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import "../../App.css";
 
 import { USER_PER_PAGE } from "../../utils/constants";
 import User from "./user";
@@ -16,9 +16,10 @@ const UsersList = ({ username }) => {
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
-  const selectedUsers = items.slice(startIndex, startIndex + USER_PER_PAGE)
+  const selectedUsers = items.slice(startIndex, startIndex + USER_PER_PAGE);
 
   const location = useLocation();
+  const UserArray = [];
 
   const getData = () => {
     fetch(`https://randomuser.me/api/?results=12&gender=${username}`)
@@ -27,7 +28,13 @@ const UsersList = ({ username }) => {
         (result) => {
           setIsLoaded(true);
           setItems(result.results);
-          setTotalPages(Math.ceil(result.results.length / USER_PER_PAGE));
+
+          // Why can't I use item here? It gives wmpty array even though it has been set.
+          // console.log('Re: ',result.results);
+          UserArray.unshift(result.results);
+          window.localStorage.setItem('userdata', JSON.stringify(UserArray));
+
+          setTotalPages(Math.ceil(result.results.length / USER_PER_PAGE));          
         },
         (error) => {
           setIsLoaded(true);
@@ -36,8 +43,10 @@ const UsersList = ({ username }) => {
       )
   }
 
+  // "location" is passed into the useEffect to trigger a new “page view” event whenever the URL changes.
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [location])
 
   const handleClick = (num) => {

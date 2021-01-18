@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 // Icons
@@ -14,6 +15,7 @@ import { faUsers, faMale, faFemale } from '@fortawesome/free-solid-svg-icons';
 // Components
 import UsersList from "./users/usersList";
 import UsersHeader from "./users/usersHeader";
+import UsersDetail from './users/usersDetail';
 
 
 
@@ -48,7 +50,7 @@ const Home = () => {
         <div className="m-1 icons-grid">
           <div className="icons-subgrid">            
             <div className="icon-background all-users">
-              <Link to="/">
+              <Link to="/all-users">
                 <FontAwesomeIcon 
                   icon={faUsers}
                   style={{color: "white"}} />
@@ -95,17 +97,32 @@ const Home = () => {
       The "username" prop is passed the usersHeader component to tell which gender is fetched */
       }
       <Switch>
+        <Route path="/male-users/:id">
+          <UsersHeader userGender="User List" />
+          <UsersDetail username="male" />
+        </Route>
         <Route path="/male-users">
-          <UsersHeader userGender="Male" />
+          <UsersHeader userGender="Male Users" />
           <UsersList username="male" />
         </Route>
+        <Route path="/female-users/:id">
+          <UsersHeader userGender="User List" />
+          <UsersDetail username="female" />
+        </Route>
         <Route path="/female-users">
-          <UsersHeader userGender="Female" />
+          <UsersHeader userGender="Female Users" />
           <UsersList username="female" />
         </Route>
-        <Route path="/">
-          <UsersHeader userGender="All" />
+        <Route path="/all-users/:id">
+          <UsersHeader userGender="User List" />
+          <UsersDetail username="all" />
+        </Route>
+        <Route path="/all-users">
+          <UsersHeader userGender="All Users" />
           <UsersList username="all" />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/all-users" />
         </Route>
       </Switch>
     </div>

@@ -5,7 +5,7 @@ const UsersHeader = ({ userGender }) => {
     <>
       <div className="header-panel">
         <h1 className="font-weight-bold text1">
-          {userGender} Users
+          {userGender}
         </h1>
         <small className="text2">Filter by</small>
         <input 

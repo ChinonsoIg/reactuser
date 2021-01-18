@@ -187,6 +187,9 @@
 
 
 /* For usersDetail.js */
+.return {
+  cursor: pointer;
+}
 .user-detail {
   display: grid;
   grid-template-areas: 
