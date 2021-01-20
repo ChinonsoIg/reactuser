@@ -63,7 +63,11 @@ const UsersList = ({ username }) => {
         {selectedUsers.map(i => (
           <User user={i} key={i.login.uuid} />        
         ))}
-        <Footer totalPages={totalPages} handleClick={handleClick} />
+        <Footer 
+          totalPages={totalPages} 
+          handleClick={handleClick}
+          selectedUsers={selectedUsers} 
+          />
       </>
     );
   }
