@@ -74,7 +74,7 @@ const Home = () => {
             </p>            
           </div>
 
-          <div className="icons-subgrid">         
+          <div className="icons-subgrid">
             <div className="icon-background female-users">
               <Link to="/female-users">
                 <FontAwesomeIcon 

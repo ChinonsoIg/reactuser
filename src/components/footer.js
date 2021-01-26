@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudDownloadAlt } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import { faCloudDownloadAlt } from "@fortawesome/free-solid-svg-icons";
 const Footer = ({ totalPages, handleClick, selectedUsers }) => {
 
   const pages = [...Array(totalPages).keys()].map(num => num + 1);
-  console.log('Pages: ',selectedUsers);
+  // console.log('Pages: ',selectedUsers);
 
   const downloadUser = () => {
     fetch(`https://randomuser.me/api/?seed=${selectedUsers}&format=csv&dl`)
@@ -20,7 +20,7 @@ const Footer = ({ totalPages, handleClick, selectedUsers }) => {
           a.click();
         });
       });
-      console.log('in dnload')
+      console.log('in dnload');
   }
 
   return (

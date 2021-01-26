@@ -13,6 +13,7 @@ const UsersList = ({ username }) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [res, setRes] = useState([]);
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
@@ -22,13 +23,13 @@ const UsersList = ({ username }) => {
   const UserArray = [];
 
   const getData = () => {
-    fetch(`https://randomuser.me/api/?results=12&gender=${username}`)
+    fetch(`https://randomuser.me/api/?results=18&gender=${username}`)
       .then(res => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
           setItems(result.results);
-
+          setRes(result);
           // Why can't I use item here? It gives wmpty array even though it has been set.
           // console.log('Re: ',result.results);
           UserArray.unshift(result.results);
@@ -46,6 +47,12 @@ const UsersList = ({ username }) => {
   // "location" is passed into the useEffect to trigger a new “page view” event whenever the URL changes.
   useEffect(() => {
     getData();
+
+    if (location.pathname === "/female-users") {
+      console.log(44)
+      document.femaleusers = "100px"
+    }
+    console.log('Loc: ',location.pathname);
     // eslint-disable-next-line
   }, [location])
 
@@ -61,7 +68,7 @@ const UsersList = ({ username }) => {
     return (
       <>
         {selectedUsers.map(i => (
-          <User user={i} key={i.login.uuid} />        
+          <User user={i}  key={i.login.uuid} />        
         ))}
         <Footer 
           totalPages={totalPages} 
