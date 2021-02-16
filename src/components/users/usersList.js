@@ -13,7 +13,6 @@ const UsersList = ({ username, queryList, queryUser }) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  // const [res, setRes] = useState([]);
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
