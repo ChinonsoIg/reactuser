@@ -1,6 +1,10 @@
+import { useState } from "react";
 import '../../App.css';
 
-const UsersHeader = ({ userGender }) => {
+const UsersHeader = ({ userGender, setQueryList }) => {
+  
+  // console.log(query)
+
   return (
     <>
       <div className="header-panel">
@@ -10,6 +14,8 @@ const UsersHeader = ({ userGender }) => {
         <small className="text2">Filter by</small>
         <input 
           type="text"
+          // value={query}
+          onChange={(e) => setQueryList(e.target.value)}
           placeholder="Find in list"
           className="find-in-list" />
 

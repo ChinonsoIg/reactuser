@@ -1,5 +1,4 @@
-import '../App.css';
-
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +6,8 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+
+import '../App.css';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,8 +19,9 @@ import UsersHeader from "./users/usersHeader";
 import UsersDetail from './users/usersDetail';
 
 
-
 const Home = () => {
+
+  const [queryList, setQueryList] = useState("");
 
   return (
     <Router>
@@ -53,7 +55,8 @@ const Home = () => {
               <Link to="/all-users">
                 <FontAwesomeIcon 
                   icon={faUsers}
-                  style={{color: "white"}} />
+                  style={{color: "white"}}
+                  size="lg" />
               </Link>
             </div>
             <p className="icon-name">
@@ -66,7 +69,8 @@ const Home = () => {
               <Link to="/male-users">
                 <FontAwesomeIcon 
                   icon={faMale}
-                  style={{color: "white"}} />
+                  style={{color: "white"}}
+                  size="lg" />
               </Link>
             </div>            
             <p className="icon-name">
@@ -79,7 +83,8 @@ const Home = () => {
               <Link to="/female-users">
                 <FontAwesomeIcon 
                   icon={faFemale}
-                  style={{color: "white"}} />
+                  style={{color: "white"}}
+                  size="lg" />
               </Link>
             </div>            
             <p className="icon-name">
@@ -102,24 +107,24 @@ const Home = () => {
           <UsersDetail username="male" />
         </Route>
         <Route path="/male-users">
-          <UsersHeader userGender="Male Users" />
-          <UsersList username="male" />
+          <UsersHeader userGender="Male Users" setQueryList={setQueryList} />
+          <UsersList username="male" queryList={queryList} />
         </Route>
         <Route path="/female-users/:id">
           <UsersHeader userGender="User List" />
           <UsersDetail username="female" />
         </Route>
         <Route path="/female-users">
-          <UsersHeader userGender="Female Users" />
-          <UsersList username="female" />
+          <UsersHeader userGender="Female Users" setQueryList={setQueryList} />
+          <UsersList username="female" queryList={queryList} />
         </Route>
         <Route path="/all-users/:id">
           <UsersHeader userGender="User List" />
           <UsersDetail username="all" />
         </Route>
         <Route path="/all-users">
-          <UsersHeader userGender="All Users" />
-          <UsersList username="all" />
+          <UsersHeader userGender="All Users" setQueryList={setQueryList} />
+          <UsersList username="all" queryList={queryList}  />
         </Route>
         <Route exact path="/">
           <Redirect to="/all-users" />
