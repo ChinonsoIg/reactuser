@@ -6,7 +6,7 @@ import { USER_PER_PAGE } from "../../utils/constants";
 import User from "./user";
 import Footer from "../footer";
 
-const UsersList = ({ username, queryList }) => {
+const UsersList = ({ username, queryList, queryUser }) => {
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,7 +17,19 @@ const UsersList = ({ username, queryList }) => {
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
-  const selectedUsers = items.slice(startIndex, startIndex + USER_PER_PAGE);
+  
+  const findUser = items.filter(user => {
+    if (queryUser === "") {
+      return user;
+    } else if (
+      user.name.first.toLowerCase().includes(queryUser.toLowerCase()) ||
+      user.name.last.toLowerCase().includes(queryUser.toLowerCase())
+      ) {
+        return user;
+    }
+  });
+
+  const selectedUsers = findUser.slice(startIndex, startIndex + USER_PER_PAGE);
 
   const location = useLocation();
   const UserArray = [];
@@ -43,8 +55,6 @@ const UsersList = ({ username, queryList }) => {
         }
       )
   }
-
-  console.log('Q. list: ',items);
   
   // "location" is passed into the useEffect to trigger a new “page view” event whenever the URL changes.
   useEffect(() => {
@@ -65,7 +75,7 @@ const UsersList = ({ username, queryList }) => {
     return (
       <>
         {selectedUsers.filter((user) => {
-          if (queryList == "") {
+          if (queryList === "") {
             return user;
           } else if (user.name.first.toLowerCase().includes(queryList.toLowerCase()) ||
           user.name.last.toLowerCase().includes(queryList.toLowerCase())) {

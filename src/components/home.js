@@ -22,6 +22,7 @@ import UsersDetail from './users/usersDetail';
 const Home = () => {
 
   const [queryList, setQueryList] = useState("");
+  const [queryUser, setQueryUser] = useState("");
 
   return (
     <Router>
@@ -43,6 +44,7 @@ const Home = () => {
               type="text"
               placeholder="Find a user"
               name="search"
+              onChange={(e) => setQueryUser(e.target.value)}
               className="search-form"/>
           </form>
         </div>
@@ -108,7 +110,7 @@ const Home = () => {
         </Route>
         <Route path="/male-users">
           <UsersHeader userGender="Male Users" setQueryList={setQueryList} />
-          <UsersList username="male" queryList={queryList} />
+          <UsersList username="male" queryList={queryList} queryUser={queryUser} />
         </Route>
         <Route path="/female-users/:id">
           <UsersHeader userGender="User List" />
@@ -116,7 +118,7 @@ const Home = () => {
         </Route>
         <Route path="/female-users">
           <UsersHeader userGender="Female Users" setQueryList={setQueryList} />
-          <UsersList username="female" queryList={queryList} />
+          <UsersList username="female" queryList={queryList} queryUser={queryUser} />
         </Route>
         <Route path="/all-users/:id">
           <UsersHeader userGender="User List" />
@@ -124,7 +126,7 @@ const Home = () => {
         </Route>
         <Route path="/all-users">
           <UsersHeader userGender="All Users" setQueryList={setQueryList} />
-          <UsersList username="all" queryList={queryList}  />
+          <UsersList username="all" queryList={queryList} queryUser={queryUser}  />
         </Route>
         <Route exact path="/">
           <Redirect to="/all-users" />
