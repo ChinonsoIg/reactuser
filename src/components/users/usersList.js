@@ -27,7 +27,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
       ) {
         return user;
     }
-    return user
+    return null;
   });
 
   const selectedUsers = findUser.slice(startIndex, startIndex + USER_PER_PAGE);
@@ -82,7 +82,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
           user.name.last.toLowerCase().includes(queryList.toLowerCase())) {
             return user;
           }
-          // return user
+          return null;
         }).map(i => (
           <User user={i}  key={i.login.uuid} />        
         ))}
