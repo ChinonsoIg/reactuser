@@ -13,6 +13,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [download, setDownload] = useState(null);
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
@@ -86,7 +87,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
         <Footer 
           totalPages={totalPages} 
           handleClick={handleClick}
-          selectedUsers={selectedUsers} 
+          selectedUsers={selectedUsers}
           />
       </>
     );
