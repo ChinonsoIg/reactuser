@@ -12,7 +12,7 @@ const Footer = ({ totalPages, handleClick, selectedUsers }) => {
   const downloadUser = () => {
     fetch(`https://randomuser.me/api/?seed=${selectedUsers}&format=csv&dl`)
       .then(res => {
-        const filters = res.filter(user => {user})
+        // const filters = res.filter(user => {user})
         res.blob().then(blob => {
           let url = window.URL.createObjectURL(blob);
           let a = document.createElement("a");
@@ -21,7 +21,7 @@ const Footer = ({ totalPages, handleClick, selectedUsers }) => {
           a.click();
         });
       });
-      console.log('in dnload');
+      // console.log('in dnload');
   }
 
   return (

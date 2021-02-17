@@ -13,7 +13,6 @@ const UsersList = ({ username, queryList, queryUser }) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [download, setDownload] = useState(null);
 
   // To select how many persons you can view per page
   const startIndex = (page - 1) * USER_PER_PAGE;
@@ -27,6 +26,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
       ) {
         return user;
     }
+    // return user
   });
 
   const selectedUsers = findUser.slice(startIndex, startIndex + USER_PER_PAGE);
@@ -81,6 +81,7 @@ const UsersList = ({ username, queryList, queryUser }) => {
           user.name.last.toLowerCase().includes(queryList.toLowerCase())) {
             return user;
           }
+          // return user
         }).map(i => (
           <User user={i}  key={i.login.uuid} />        
         ))}
