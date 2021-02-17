@@ -20,13 +20,14 @@ const UsersList = ({ username, queryList, queryUser }) => {
   const findUser = items.filter(user => {
     if (queryUser === "") {
       return user;
-    } else if (
+    } 
+    if (
       user.name.first.toLowerCase().includes(queryUser.toLowerCase()) ||
       user.name.last.toLowerCase().includes(queryUser.toLowerCase())
       ) {
         return user;
     }
-    // return user
+    return user
   });
 
   const selectedUsers = findUser.slice(startIndex, startIndex + USER_PER_PAGE);
